@@ -13,21 +13,6 @@ const openAiChat = new ChatOpenAI({
   verbose: false,
 });
 
-// const prompt = new PromptTemplate({
-//   template: `
-//     Você é um especialista em normas acadêmicas sobre o curso de ciência da computação na Universidade Federal de Sergipe.
-
-//     Com base no conteúdo abaixo, responda a pergunta do usuário. Se a resposta não for encontrada no conteúdo, reponda que você não sabe. Não tente inventar uma resposta.
-
-//     Conteúdo:
-//     {context}
-
-//     Pergunta:
-//     {question}
-//   `.trim(),
-//   inputVariables: ["context", "question"],
-// });
-
 const prompt = new PromptTemplate({
   template: `
     Você é um especialista em procurar perguntas relacionadas com temas de provas do ENADE.
@@ -68,32 +53,8 @@ async function main() {
     query:
       "Poderia me fornecer questões relacionadas a DER (Diagrama Entidade Relacionamento)?",
   });
-  console.log(response.sourceDocuments[0]);
-  console.log("-------------------------------");
-  console.log(response.sourceDocuments[0].metadata);
+  console.log(response);
   await redis.disconnect();
 }
-
-/**
- Em response.sourceDocuments[0].metadata
- {
-  source: 'C:\\Users\\Igor\\Documents\\www\\search-based\\tmp\\enade_2021.pdf',
-  pdf: {
-    version: '1.10.100',
-    info: {
-      PDFFormatVersion: '1.3',
-      IsAcroFormPresent: false,
-      IsXFAPresent: false,
-      Producer: 'Creo Normalizer JTP',
-      CreationDate: "D:20211111155825-03'00'",
-      ModDate: "D:20211111155839-03'00'",
-      Trapped: [Object]
-    },
-    metadata: { _metadata: [Object] },
-    totalPages: 48
-  },
-  loc: { pageNumber: 31, lines: { from: 1, to: 44 } }
-}
- */
 
 main();
