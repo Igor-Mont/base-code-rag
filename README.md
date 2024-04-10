@@ -13,3 +13,4 @@
 - Execute o arquivo `loader.ts`: `npx tsx src/loader.ts`
 - Para ver a busca semântica sem uso do LLM: `npx tsx src/search.ts`
 - Para ver o RAG com LLM GPT-3.5-turbo: `npx tsx src/gpt.ts`
+- Para ver o RAG com LLM Gemini PRO: `npx tsx src/gemini.ts`
